@@ -1,10 +1,6 @@
 package com.example.ml_examen.model;
 
-import android.os.Parcelable;
-
 import com.google.gson.annotations.SerializedName;
-
-import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 
 public class ProductList {
