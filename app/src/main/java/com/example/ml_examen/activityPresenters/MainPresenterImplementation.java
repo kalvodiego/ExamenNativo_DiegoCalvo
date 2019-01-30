@@ -56,6 +56,5 @@ public class MainPresenterImplementation implements MainContract.presenter, Main
 
     @Override
     public void onItemClick(Product product) {
-        String a = "";
     }
 }
