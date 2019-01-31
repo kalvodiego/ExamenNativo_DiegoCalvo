@@ -7,6 +7,8 @@ import com.example.ml_examen.model.ProductDetail;
 import com.example.ml_examen.model.ProductList;
 import com.example.ml_examen.service.RetrofitInstance;
 
+import java.util.ArrayList;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -30,7 +32,8 @@ public class GetProductoInteractorImplementation implements MainContract.GetProd
             public void onResponse(Call<ProductList> call, Response<ProductList> response) {
                 //Log de la Response exitosa
                 Log.wtf("Response exitosa: ", response.message() + "" );
-                onFinishdListener.onFinished(response.body().getProductsArrayList());
+                ArrayList<ProductList> list = new ArrayList<>();
+                onFinishdListener.onFinished( response.body().getProductsArrayList());
             }
 
             @Override
@@ -60,7 +63,7 @@ public class GetProductoInteractorImplementation implements MainContract.GetProd
                if (response.isSuccessful()) {
                    //Log de la Response exitosa
                    Log.wtf("Response exitosa: ", response.message() + "");
-                   String res = response.body().getDetalle().toString();
+                   String res = response.body() != null ? response.body().getDetalle(): "";
                    ProductDetail productDetail = new ProductDetail(res);
                    onFinishdListener.onFinished(productDetail);
                }else{

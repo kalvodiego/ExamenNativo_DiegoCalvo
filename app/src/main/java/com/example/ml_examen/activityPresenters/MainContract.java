@@ -1,5 +1,7 @@
 package com.example.ml_examen.activityPresenters;
 
+import android.content.Context;
+
 import com.example.ml_examen.model.Product;
 
 import java.util.ArrayList;
@@ -12,7 +14,8 @@ public interface MainContract {
         void clearData();
 
         void requestDataFromApi(String query);
-        
+
+        void HandleclickOnProduct(Product product, Context context);
     }
     
     //Interfaz para comunicar la vista Main con metodos para mostrar/ocultar progressSpinner y para 
@@ -45,6 +48,5 @@ public interface MainContract {
         void getProductArrayList(OnFinishdListener onFinishdListener, String query);
         
     }
-    
 
 }

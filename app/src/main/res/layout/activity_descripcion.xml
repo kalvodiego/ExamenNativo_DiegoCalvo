@@ -27,7 +27,6 @@
          android:id="@+id/descp_title"
          android:textSize="18sp"
          android:textStyle="bold"
-         android:text="@string/descripci_n_del_producto"
          android:layout_marginTop="10dp"
          android:layout_marginStart="10dp"/>
 

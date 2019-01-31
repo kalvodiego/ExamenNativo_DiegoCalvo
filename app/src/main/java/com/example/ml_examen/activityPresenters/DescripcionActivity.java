@@ -21,13 +21,13 @@ public class DescripcionActivity extends AppCompatActivity implements Descripcio
     private ProgressBar progressBar;
     private ViewGroup viewGroup;
     private DescripcionContract.presenter detallePresenter;
-    TextView titulo, descripcion;
+    TextView titulo, descripcion, descripciontitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_descripcion);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         detallePresenter = new DescripcionPresenterImplementation(this, new GetProductoInteractorImplementation());
         initProgressBar();
         initElements();
@@ -39,11 +39,15 @@ public class DescripcionActivity extends AppCompatActivity implements Descripcio
         //se llama al presenter para obtener los datos del detalle del producto
         titulo = findViewById(R.id.titulo_descp);
         descripcion = findViewById(R.id.text_descp);
+        descripciontitle = findViewById(R.id.descp_title);
         if (getIntent().hasExtra("id")){
            detallePresenter.requestDetailsFromApi(getIntent().getStringExtra("id"));
         }
         //Se inicializa el groupView
         viewGroup = (ViewGroup) ((ViewGroup) (findViewById(android.R.id.content))).getChildAt(0);
+        if(getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
     }
 
@@ -77,6 +81,7 @@ public class DescripcionActivity extends AppCompatActivity implements Descripcio
         //Callback llamada cuando se retornan los datos de la API
         Log.d(TAG, "Response OK, setting data to view ");
         hideProgress();
+        descripciontitle.setText(getResources().getString(R.string.descripci_n_del_producto));
         descripcion.setText(detalle.getDetalle());
         if (getIntent().hasExtra("title")){
             titulo.setText(getIntent().getStringExtra("title"));
@@ -92,7 +97,7 @@ public class DescripcionActivity extends AppCompatActivity implements Descripcio
 
     @Override
     public void onResponseFailure(String error) {
-        Log.d(TAG, "onResponseFailure: " + error);
+        Log.d(TAG, "onResponseFailure Server Error: " + error);
         showSnackBar("Algo no salió bien con nuestro servidor");
     }
 

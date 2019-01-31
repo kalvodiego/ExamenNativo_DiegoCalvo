@@ -1,13 +1,13 @@
 package com.example.ml_examen.activityPresenters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.InputFilter;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import com.example.ml_examen.R;
 import com.example.ml_examen.adapter.ProductsAdapter;
@@ -116,12 +117,12 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
             @Override
             public boolean onQueryTextChange(String newText) {
                 //Cuando el texto cambia, o es eliminado, se limpia la lista.
-                Log.d(TAG, "onQueryTextChange -> se reemplaza el texto por: " + newText);
+                Log.d(TAG, "onQueryTextChange -> se reemplaza el texto por: " + newText + "largo: " + (!newText.isEmpty() ? newText.length() : ""));
+
                 presenter.clearData();
                 return false;
             }
         });
-
     }
 
     private void initProgressBar() {
@@ -144,12 +145,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
         @Override
         public void onItemClick(Product product) {
             //Click listener que abrirá una nueva actvity, con los detalles del producto seleccionado
-            Log.d(TAG, "onClick: click en: " + product.getId());
-            Intent intent = new Intent(mContext, DescripcionActivity.class);
-            //Se agregan datos del producto seleccionado que se envian a la nueva Activity
-            intent.putExtra("id", product.getId());
-            intent.putExtra("title", product.getTitle());
-            mContext.startActivity(intent);
+            presenter.HandleclickOnProduct(product, mContext);
         }
     };
 

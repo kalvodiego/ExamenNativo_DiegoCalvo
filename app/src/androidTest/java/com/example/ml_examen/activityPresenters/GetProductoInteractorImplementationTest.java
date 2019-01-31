@@ -14,9 +14,9 @@ import static org.mockito.Mockito.verify;
 
 public class GetProductoInteractorImplementationTest {
 
-    GetProductoInteractorImplementation  interactor;
-    MainActivity mainActivity;
-    DescripcionActivity descripcionActivity;
+   private GetProductoInteractorImplementation  interactor;
+   private MainActivity mainActivity;
+   private DescripcionActivity descripcionActivity;
 
     @Before
     public void setUp() throws Exception {
