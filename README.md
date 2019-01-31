@@ -33,8 +33,8 @@ Libreria utilizada para la realización de tests unitarios
 ### Mockito
 Framework para la creacion de objetos Mock(objetos simulados) en testing automatizado
 ```bash
-   'org.mockito:mockito-core:2.7.22'
-   'org.mockito:mockito-android:2.7.22'
+'org.mockito:mockito-core:2.7.22'
+'org.mockito:mockito-android:2.7.22'
 ```
 
 
