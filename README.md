@@ -1,9 +1,9 @@
 # Examen Nativo Android: Diego Alberto Calvo
 
-## Descripcóin de las librerias utilizadas.
+## Descripción de las librerías utilizadas.
 
 ### Glide
-Libreria utilizada para la gestión y carga de imagenes desde la web.
+Librería utilizada para la gestión y carga de imagenes desde la web.
 ```bash
 'com.github.bumptech.glide:glide:4.8.0'
 'com.github.bumptech.glide:compiler:4.8.0'
@@ -18,14 +18,14 @@ Cliente HTTP para Android, utilizado para comunicarse con la API y relizar el ma
 ```
 
 ### RecyclerView
-Libreria utilizada para mostrar la lista de Cards, que representa cada producto
+Librería utilizada para mostrar la lista de Cards, que representa cada producto
 ```bash
 'com.android.support:recyclerview-v7:27.1.1'
 'com.android.support:cardview-v7:27.1.1'
 ```
 
 ### JUnit
-Libreria utilizada para la realización de tests unitarios
+Librería utilizada para la realización de tests unitarios
 ```bash
 'junit:junit:4.12'
 ```
