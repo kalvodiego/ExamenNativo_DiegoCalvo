@@ -68,15 +68,16 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
 
     @Override
     public void onResponseFailure(Throwable throwable) {
-        //Se implementa este callback que es llamado en caso de que la llamada haya sido erronea.
+        //Se implementa este callback que es ejecutado en caso de que la llamada haya sido erronea.
         //Se le informa al usuario en forma de snackBar que algo no salió bien, y se guarda en log
-        //el mensaje de la execpcion retornada.
         Log.d(TAG, "onResponseFailure: " + throwable.getMessage());
         showSnackBar("Ha ocurrido un problema, verifique su conexión");
     }
 
     @Override
     public void onResponseFailure(String error) {
+        //Se implementa este callback que es ejecutado en caso de que la llamada haya sido erronea.
+        Log.d(TAG, "onResponseFailure: " + error);
         showSnackBar("Algo no salió bien con nuestro servidor");
     }
 

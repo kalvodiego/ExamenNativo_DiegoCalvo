@@ -90,13 +90,14 @@ public class DescripcionActivity extends AppCompatActivity implements Descripcio
 
     @Override
     public void onResponseFailure(Throwable throwable) {
+        //Este Callback es ejecutado cuando ocurre algún error de comunicacion con el servidor
         Log.d(TAG, "onResponseFailure: " + throwable.getMessage());
-        //Obtener la vista actual del activity
         showSnackBar("Ha ocurrido un problema, verifique su conexión");
     }
 
     @Override
     public void onResponseFailure(String error) {
+        //Callback ejecutado cuando ocurre  un fallo en la llamada a la API
         Log.d(TAG, "onResponseFailure Server Error: " + error);
         showSnackBar("Algo no salió bien con nuestro servidor");
     }

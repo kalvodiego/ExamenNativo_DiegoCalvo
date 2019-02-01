@@ -20,14 +20,14 @@ Cliente HTTP para Android, utilizado para comunicarse con la API y relizar el ma
 ### RecyclerView
 Libreria utilizada para mostrar la lista de Cards, que representa cada producto
 ```bash
-"com.android.support:recyclerview-v7:27.1.1"
-"com.android.support:cardview-v7:27.1.1"
+'com.android.support:recyclerview-v7:27.1.1'
+'com.android.support:cardview-v7:27.1.1'
 ```
 
 ### JUnit
 Libreria utilizada para la realización de tests unitarios
 ```bash
-"junit:junit:4.12"
+'junit:junit:4.12'
 ```
 
 ### Mockito
